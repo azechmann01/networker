@@ -20,6 +20,7 @@ Rails.application.routes.draw do
   # Routes for the Contact resource:
   # CREATE
   get "/contacts/new", :controller => "contacts", :action => "new"
+  get "/contacts/new/:company_id", :controller => "contacts", :action => "new"
   post "/create_contact", :controller => "contacts", :action => "create"
 
   # READ
@@ -34,7 +35,7 @@ Rails.application.routes.draw do
   get "/delete_contact/:id", :controller => "contacts", :action => "destroy"
   #------------------------------
 
-  # Home Page 
+  # Home Page
   get "/", :controller => "companies", :action => "index"
 
   # Routes for the Company resource:

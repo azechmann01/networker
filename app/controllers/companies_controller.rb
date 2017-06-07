@@ -59,7 +59,7 @@ class CompaniesController < ApplicationController
     if URI(request.referer).path == "/companies/#{@company.id}"
       redirect_to("/", :notice => "Company deleted.")
     else
-      redirect_to(:back, :notice => "Company deleted.")
+      redirect_to("/", :notice => "Company deleted.")
     end
   end
 end

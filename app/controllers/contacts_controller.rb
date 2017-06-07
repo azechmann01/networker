@@ -8,11 +8,14 @@ class ContactsController < ApplicationController
   def show
     @contact = Contact.find(params[:id])
 
+
+
     render("contacts/show.html.erb")
   end
 
   def new
     @contact = Contact.new
+    @contact.company_id = params[:company_id]
 
     render("contacts/new.html.erb")
   end
@@ -63,7 +66,7 @@ class ContactsController < ApplicationController
     if URI(request.referer).path == "/contacts/#{@contact.id}"
       redirect_to("/", :notice => "Contact deleted.")
     else
-      redirect_to(:back, :notice => "Contact deleted.")
+      redirect_to("/contacts", :notice => "Company deleted.")
     end
   end
 end

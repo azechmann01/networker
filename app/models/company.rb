@@ -3,6 +3,6 @@ class Company < ApplicationRecord
   has_many :company_researches, :dependent => :destroy
 
   # company must be present
-  validates :name, :presence => true
+  validates :name, :presence => true, :uniqueness => true
 
 end
