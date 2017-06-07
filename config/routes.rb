@@ -1,5 +1,22 @@
 Rails.application.routes.draw do
 
+  # Routes for the Company_research resource:
+  # CREATE
+  get "/company_researches/new", :controller => "company_researches", :action => "new"
+  post "/create_company_research", :controller => "company_researches", :action => "create"
+
+  # READ
+  get "/company_researches", :controller => "company_researches", :action => "index"
+  get "/company_researches/:id", :controller => "company_researches", :action => "show"
+
+  # UPDATE
+  get "/company_researches/:id/edit", :controller => "company_researches", :action => "edit"
+  post "/update_company_research/:id", :controller => "company_researches", :action => "update"
+
+  # DELETE
+  get "/delete_company_research/:id", :controller => "company_researches", :action => "destroy"
+  #------------------------------
+
   # Routes for the Contact resource:
   # CREATE
   get "/contacts/new", :controller => "contacts", :action => "new"

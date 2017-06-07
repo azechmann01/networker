@@ -10,15 +10,15 @@
     <table class="table table-striped table-hover">
       <tr>
         <th>Name</th>
-        <th>Actions</th>
+        <th>Action</th>
       </tr>
 
       <% @companies.each do |company| %>
       <tr>
         <td><%= company.name %></td>
         <td>
-          <a href="/companies/<%= company.id %>" class="btn btn-primary">Show</a>
-          <a href="/companies/<%= company.id %>/edit" class="btn btn-warning">Edit</a>
+          <a href="/companies/<%= company.id %>" class="btn btn-primary">Contacts</a>
+          <a href="/company_researches" class="btn btn-warning">Company Research</a>
           <a href="/delete_company/<%= company.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
         </td>
       </tr>

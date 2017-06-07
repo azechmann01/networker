@@ -24,17 +24,12 @@
           Name
         </label>
 
-        <input type="text" id="name" name="name" placeholder="Name" class="form-control" value="<%= @contact.name %>">
-      </div>
+    <input type="text" id="name" name="name" placeholder="Name"     class="form-control" value="<%= @contact.name %>">
+    </div>
 
-      <!-- Label and input for user_id -->
-      <div class="form-group">
-        <label for="user_id" class="control-label">
-          User
-        </label>
 
-        <input type="text" id="user_id" name="user_id" placeholder="User" class="form-control" value="<%= @contact.user_id %>">
-      </div>
+      <!-- Hidden with the current user's ID-->
+      <input type="hidden" id="user_id" name="user_id" value="<%= current_user.id %>">
 
       <!-- Label and input for company_id -->
       <div class="form-group">
