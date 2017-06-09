@@ -2,14 +2,32 @@
   <h3><%= @contact.name %></h3>
 </div>
 
+
 <div class="row">
   <div class="col-md-12 mb-2">
     <dl class="dl-horizontal">
 
-      <dt>Company</dt>
-      <dd><%= @contact.company_id %></dd>
+
+      <label class="checkbox-inline-lg"><input type="checkbox"  value="">Phone Call</label> 
+      <label class="checkbox-inline-lg"><input type="checkbox"  value="">Coffee Chat</label>
+      <label class="checkbox-inline-lg"><input type="checkbox" value="">Thank You</label>
+
 
     </dl>
+
+    <div class="form-group-sm">
+  <label for="usr">Top 3 Takeaways:</label>
+  <input type="text" class="form-control" id="text">
+<div class="form-group">
+  <input type="text" class="form-control" id="text">
+  <div class="form-group">
+  <input type="text" class="form-control" id="text">
+    </div>
+
+    <div class="form-group">
+  <label for="comment">Notes:</label>
+  <textarea class="form-control" rows="5" id="comment"></textarea>
+</div>
 
     <div class="btn-group btn-group-justified">
       <a href="/contacts" class="btn btn-primary">
