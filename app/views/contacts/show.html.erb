@@ -9,13 +9,10 @@
       <dt>Company</dt>
       <dd><%= @contact.company_id %></dd>
 
-      <dt>Position</dt>
-      <dd><%= @contact.name %></dd>
-
     </dl>
 
     <div class="btn-group btn-group-justified">
-      <a href="/companies" class="btn btn-primary">
+      <a href="/contacts" class="btn btn-primary">
         Back
       </a>
       <a href="/contacts/<%= @contact.id %>/edit" class="btn btn-warning">
