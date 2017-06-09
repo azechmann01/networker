@@ -17,6 +17,8 @@ class ContactsController < ApplicationController
     @contact = Contact.new
     @contact.company_id = params[:company_id]
 
+    @companies = Company.all
+
     render("contacts/new.html.erb")
   end
 

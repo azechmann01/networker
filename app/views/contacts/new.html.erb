@@ -1,3 +1,5 @@
+
+
 <!-- Validation failure messages -->
 <% if @contact.errors.any? %>
   <% @contact.errors.full_messages.each do |message| %>
@@ -24,26 +26,22 @@
           Name
         </label>
 
-    <input type="text" id="name" name="name" placeholder="Name"     class="form-control" value="<%= @contact.name %>">
-    </div>
+        <input type="text" id="name" name="name" placeholder="Name" class="form-control" value="<%= @contact.name %>">
+      </div>
 
+      <!-- Label and input for user_id -->
 
-      <!-- Hidden with the current user's ID-->
-      <input type="hidden" id="user_id" name="user_id" value="<%= current_user.id %>">
+        <input type="hidden" id="user_id" name="user_id" placeholder="User" class="form-control" value="<%= @contact.user_id %>">
+      </div>
 
-      <!-- Company ID hidden field or input, as applicable -->
-      <% if @contact.company_id != nil %>
-        <input type="hidden" id="company_id" name="company_id" value="<%= @contact.company_id %>">
-      <% else %>
-        <!-- Label and input for company_id -->
-        <div class="form-group">
-          <label for="company_id" class="control-label">
-            Company
-          </label>
-          <input type="text" id="company_id" name="company_id" placeholder="Company" class="form-control">
-        </div>
-      <% end %>
+      <!-- Label and input for company_id -->
+      <div class="form-group">
+        <label for="company_id" class="control-label">
+          Company
+        </label>
 
+        <input type="text" id="company_id" name="company_id" placeholder="Company" class="form-control" value="<%= @contact.company_id %>">
+      </div>
 
       <button class="btn btn-success">
         Create Contact

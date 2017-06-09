@@ -1,7 +1,7 @@
 <div class="page-header">
   <h1>
     Contacts
-    <a href="/contacts/new" class="btn btn-lg btn-success">New Contact</a>
+    <a href="/contacts/new" class="btn btn-lg btn-default">New Contact</a>
   </h1>
 </div>
 
@@ -12,20 +12,19 @@
         <th>Name</th>
         <th>Company</th>
         <th>Actions</th>
-        <th>Number of Contacts</dt>
+
 
         </tr>
 
       <% @contacts.each do |contact| %>
       <tr>
         <td><%= contact.name %></td>
-        <td><%= contact.user_id %></td>
         <td><%= contact.company_id %></td>
         <td>
-          <a href="/contacts/<%= contact.id %>" class="btn btn-primary">Show</a>
+          <a href="/contacts/<%= contact.id %>" class="btn btn-primary">Profile</a>
           <a href="/contacts/<%= contact.id %>/edit" class="btn btn-warning">Edit</a>
           <a href="/delete_contact/<%= contact.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
-        </td>
+
       </tr>
       <% end %>
     </table>
