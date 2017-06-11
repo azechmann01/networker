@@ -8,6 +8,7 @@ class CompaniesController < ApplicationController
   def show
     @company = Company.find(params[:id])
 
+
     render("companies/show.html.erb")
   end
 
@@ -28,6 +29,10 @@ class CompaniesController < ApplicationController
       redirect_to("/companies/#{@company.id}", :notice => "Company created successfully.")
     else
       render("companies/new.html.erb")
+      @event = Event.new
+      @event.title = params[:title]
+      @event.held_on = Chronic.parse(params[:held_on])
+      @event.save
     end
   end
 
@@ -49,6 +54,9 @@ class CompaniesController < ApplicationController
     else
       render("companies/edit.html.erb")
     end
+
+
+
   end
 
   def destroy

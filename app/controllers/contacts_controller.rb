@@ -8,7 +8,7 @@ class ContactsController < ApplicationController
   def show
     @contact = Contact.find(params[:id])
 
-    
+
 
     render("contacts/show.html.erb")
   end
@@ -47,18 +47,20 @@ class ContactsController < ApplicationController
   def update
     @contact = Contact.find(params[:id])
 
-    @contact.name = params[:name]
-    @contact.user_id = params[:user_id]
-    @contact.company_id = params[:company_id]
+      @contact.name = params[:name]
+      @contact.user_id = params[:user_id]
+      @contact.company_id = params[:company_id]
+      @contact.relationship = params[:relationship]
+      @contact.last_action_date = Chronic.parse(params[:last_action_date])
 
-    save_status = @contact.save
+      save_status = @contact.save
 
-    if save_status == true
-      redirect_to("/contacts/#{@contact.id}", :notice => "Contact updated successfully.")
-    else
-      render("contacts/edit.html.erb")
+      if save_status == true
+        redirect_to("/contacts/#{@contact.id}", :notice => "Contact updated successfully.")
+      else
+        render("contacts/edit.html.erb")
+      end
     end
-  end
 
   def destroy
     @contact = Contact.find(params[:id])

@@ -1,3 +1,4 @@
+
 <div class="page-header">
   <h1>
   <dd><%= Company.find_by(:id =>@company.id).name %><dd/>
@@ -13,46 +14,67 @@
         <th>Relationship</th>
         <th>Last Action</th>
         <th>Date</th>
+        <th>Actions</th>
       </tr>
 
 
     <% @company.contacts.each do |contact| %>
-  <tr>
-    <td><a href="/contacts/<%= contact.id %>"><%= contact.name %></a><td>
-      <select class="form-control-sm">
-        <option></option>
-        <option>Booth</option>
-        <option>LinkedIn 1st</option>
-        <option>LinkedIn 2nd</option>
-        <option>Colleague</option>
-        <option>Connected</option>
-      <select/>
- <td>
-  <select class="form-control-sm">
-    <option></option>
-    <option>Initial Outreach</option>
-    <option>Thank You</option>
-    <option>Follow Up</option>
+      <tr>
 
-    <select/>
- <td>
-    <div class='input-group date' id='datetimepicker1'>
-  <input type='text' class="form-control" name="held_on" id="held_on">
-  <span class="input-group-addon">
-    <span class="glyphicon glyphicon-calendar"></span>
-  </span>
-</div>
+        <form action="/update_contact/<%= contact.id %>" method="post">
+          <!-- Hidden input for authenticity token to protect from forgery -->
+          <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+          <!-- Hidden fields for name and user_id and company_id -->
+          <input type="hidden" name="name" value="<%= contact.name %>">
+          <input type="hidden" name="company_id" value="<%= contact.company_id %>">
+          <input type="hidden" name="user_id" value="<%= contact.user_id %>">
 
-    </ul>
-  </div>
-    </div>
+
+          <td>
+            <a href="/contacts/<%= contact.id %>"><%= contact.name %></a>
+          </td>
+
+          <td>
+            <p> <%= contact.relationship %></p>
+            <select name="relationship" class="form-control-sm">
+              <option></option>
+              <option value="Booth">Chicago Booth</option>
+              <option value="LinkedIn">LinkedIn</option>
+              <option value="Colleague">Colleague</option>
+            <select/>
+          </td>
+
+          <td>
+            <select class="form-control-sm">
+              <option></option>
+              <option>Initial Outreach</option>
+              <option>Thank You</option>
+              <option>Follow Up</option>
+            <select/>
+          </td>
+
+
+          <td>
+            <div class='input-group date our_datetimepicker' >
+              <input type='text' class="form-control" name="last_action_date" id="last_action_date">
+              <span class="input-group-addon">
+                <span class="glyphicon glyphicon-calendar"></span>
+              </span>
+            </div>
+          </td>
+
+          <td>
+            <input type="submit" name="update">
+          </td>
+
+        </form>
+
       </tr>
-      <% end %>
-    </table>
+  <% end %>
 </table>
 
-
-
+</div>
+</div>
 
 <div class="row">
   <div class="col-md-12 mb-2">
@@ -62,13 +84,15 @@
   </div>
 </div>
 
-<script type="text/javascript">
-  $(function () {
-    $('#datetimepicker1').datetimepicker();
-  });
-</script>
+
 
 <h1>
   <a href="/contacts/new/<%= @company_id %>" class="btn btn-lg btn-default">New Contact</a>
 </h1>
 </div>
+
+<script type="text/javascript">
+  $(function () {
+    $('.our_datetimepicker').datetimepicker();
+  });
+</script>

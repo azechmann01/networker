@@ -19,7 +19,7 @@
       <% @contacts.each do |contact| %>
       <tr>
         <td><%= contact.name %></td>
-        <td><%= contact.company_id %></td>
+        <td><%= contact.company.name %></td>
         <td>
           <a href="/contacts/<%= contact.id %>" class="btn btn-primary">Profile</a>
           <a href="/contacts/<%= contact.id %>/edit" class="btn btn-warning">Edit</a>
