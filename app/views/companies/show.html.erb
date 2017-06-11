@@ -36,35 +36,36 @@
 
           <td>
             <p> <%= contact.relationship %></p>
-            <select name="relationship" class="form-control-sm">
-              <option></option>
-              <option value="Booth">Chicago Booth</option>
-              <option value="LinkedIn">LinkedIn</option>
-              <option value="Colleague">Colleague</option>
-            <select/>
-          </td>
+
 
           <td>
-            <select class="form-control-sm">
+            <p> <%= contact.last_action_type %></p>
+            <select name= "last_action_type" class="form-control-sm">
               <option></option>
-              <option>Initial Outreach</option>
-              <option>Thank You</option>
-              <option>Follow Up</option>
+              <option value="Initial Outreach">Initial Outreach</option>
+              <option value="Thank You">Thank You</option>
+              <option value="Follow Up">Follow Up</option>
             <select/>
           </td>
 
 
           <td>
-            <div class='input-group date our_datetimepicker' >
+            <p> <%= contact.last_action_date %></p>
+            <div class='input-group date' id="datetimepicker<%= contact.id %>" >
               <input type='text' class="form-control" name="last_action_date" id="last_action_date">
               <span class="input-group-addon">
                 <span class="glyphicon glyphicon-calendar"></span>
               </span>
             </div>
+            <script type="text/javascript">
+              $(function () {
+                $('datetimepicker<%= contact.id %>').datetimepicker();
+              });
+            </script>
           </td>
 
           <td>
-            <input type="submit" name="update">
+    <input type="submit" name="update">
           </td>
 
         </form>

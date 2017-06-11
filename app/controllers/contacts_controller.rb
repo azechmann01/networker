@@ -7,7 +7,7 @@ class ContactsController < ApplicationController
 
   def show
     @contact = Contact.find(params[:id])
-    
+
 
 
     render("contacts/show.html.erb")
@@ -28,6 +28,7 @@ class ContactsController < ApplicationController
     @contact.name = params[:name]
     @contact.user_id = params[:user_id]
     @contact.company_id = params[:company_id]
+    @contact.relationship = params[:relationship]
 
     save_status = @contact.save
 
@@ -51,6 +52,7 @@ class ContactsController < ApplicationController
       @contact.user_id = params[:user_id]
       @contact.company_id = params[:company_id]
       @contact.relationship = params[:relationship]
+      @contact.last_action_type = params[:last_action_type]
       @contact.last_action_date = Chronic.parse(params[:last_action_date])
 
       save_status = @contact.save
