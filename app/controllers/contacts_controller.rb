@@ -7,7 +7,7 @@ class ContactsController < ApplicationController
 
   def show
     @contact = Contact.find(params[:id])
-
+    
 
 
     render("contacts/show.html.erb")
